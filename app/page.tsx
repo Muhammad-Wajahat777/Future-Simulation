@@ -15,35 +15,9 @@ const fadeUp = {
 
 export default function Home() {
   return (
-    <main className="relative min-h-svh overflow-hidden bg-[#050816] text-white">
+    <main className="relative min-h-[calc(100svh-5rem)] overflow-hidden bg-[#050816] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_32%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.16),transparent_28%),radial-gradient(circle_at_bottom,rgba(15,23,42,0.9),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[80px_80px] mask-[radial-gradient(circle_at_center,black,transparent_78%)] opacity-20" />
-
-      <header className="relative z-10 mx-auto mt-5 flex w-[calc(100%-1.5rem)] max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/6 px-5 py-4 shadow-[0_18px_60px_rgba(2,6,23,0.55)] backdrop-blur-2xl md:w-[calc(100%-2.5rem)] md:px-7">
-        <Link href="/" className="group inline-flex items-center gap-3">
-          <div className="flex size-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(56,189,248,0.12)] backdrop-blur-xl transition-transform duration-300 group-hover:scale-105">
-            <Sparkles className="size-5 text-cyan-300" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold tracking-[0.28em] text-white/90 uppercase">
-              Future Simulator
-            </p>
-            <p className="text-xs text-white/45">See your future before you live it.</p>
-          </div>
-        </Link>
-
-        <nav className="flex items-center gap-3 rounded-full border border-white/10 bg-slate-950/35 px-2 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl">
-          <Button asChild variant="ghost" className="text-white/80 hover:bg-white/8 hover:text-white">
-            <Link href="/login">Sign In</Link>
-          </Button>
-          <Button asChild className="bg-white text-slate-950 hover:bg-cyan-100">
-            <Link href="/signup" className="inline-flex items-center gap-2">
-              Create Account
-              <ArrowRight className="size-4" />
-            </Link>
-          </Button>
-        </nav>
-      </header>
 
       <section className="relative z-10 mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center gap-10 px-6 pb-16 pt-8 md:grid-cols-[1.05fr_0.95fr] md:px-10 lg:pb-24">
         <motion.div

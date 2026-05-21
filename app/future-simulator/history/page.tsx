@@ -10,7 +10,7 @@ export default async function HistoryPage() {
   const simulations = await fetchSimulations();
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-5xl flex-col gap-6 px-4 py-10">
+    <main className="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-5xl flex-col gap-6 px-4 py-10">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold">Simulation History</h1>

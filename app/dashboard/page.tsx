@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 export default function DashboardPage() {
   return (
-    <main className="mx-auto flex min-h-svh w-full max-w-5xl flex-col gap-6 p-6 md:p-10">
+    <main className="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-5xl flex-col gap-6 p-6 md:p-10">
       <section className="space-y-2">
         <h1 className="text-3xl font-semibold tracking-tight">Dashboard</h1>
         <p className="text-sm text-muted-foreground">

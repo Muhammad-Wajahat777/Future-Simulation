@@ -22,7 +22,7 @@ export default function FutureSimulatorPage() {
   };
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center gap-8 px-4 py-10">
+    <main className="mx-auto flex min-h-[calc(100svh-5rem)] w-full max-w-6xl flex-col items-center gap-8 px-4 py-10">
       <div className="w-full max-w-2xl text-center">
         <h1 className="text-3xl font-semibold">Future Simulator</h1>
         <p className="mt-2 text-sm text-muted-foreground">

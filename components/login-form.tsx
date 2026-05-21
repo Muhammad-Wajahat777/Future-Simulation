@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -26,8 +27,10 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+  const nextPath = searchParams.get("next") || "/dashboard"
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -46,11 +49,11 @@ export function LoginForm({
     }
 
     setLoading(false)
-    router.push("/dashboard")
+    router.push(nextPath)
   }
 
   async function handleGoogle() {
-    const redirectTo = `${window.location.origin}/dashboard`
+    const redirectTo = `${window.location.origin}${nextPath}`
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo },

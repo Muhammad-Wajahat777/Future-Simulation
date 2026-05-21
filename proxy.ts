@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 
 export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request })
+  const pathname = request.nextUrl.pathname
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
@@ -22,7 +23,29 @@ export async function proxy(request: NextRequest) {
     }
   )
 
-  await supabase.auth.getClaims()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+
+  const protectedRoutes = ['/dashboard', '/future-simulator']
+  const authRoutes = ['/login', '/signup']
+
+  const isProtectedRoute = protectedRoutes.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`)
+  )
+  const isAuthRoute = authRoutes.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`)
+  )
+
+  if (!session && isProtectedRoute) {
+    const loginUrl = new URL('/login', request.url)
+    loginUrl.searchParams.set('next', pathname)
+    return NextResponse.redirect(loginUrl)
+  }
+
+  if (session && isAuthRoute) {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
+  }
 
   return response
 }

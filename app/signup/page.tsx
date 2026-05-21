@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen flex items-center justify-center bg-[#050816] text-white">
+    <main className="relative flex min-h-[calc(100svh-5rem)] items-center justify-center bg-[#050816] text-white">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.06),transparent_20%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.04),transparent_20%)]" />
 
       <div className="z-10 w-full max-w-md px-6 py-10">
